@@ -6,8 +6,8 @@
   "version": "1.0.0",
   "git": "https://github.com/arunhedcet/a6sp9s",
   "packages": {
-    "iron-router": "0.8.2",
-    "accounts-t9n": "0.0.5",
+    "iron-router": "0.9.4",
+    "accounts-t9n": "0.0.2",
     "simple-form": ""
   }
 }

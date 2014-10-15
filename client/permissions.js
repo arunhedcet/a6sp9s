@@ -1,44 +1,5 @@
-/**
- * Convenience functions for use on client.
- *
- * NOTE: You must restrict user actions on the server-side; any
- * client-side checks are strictly for convenience and must not be
- * trusted.
- *
- * @module UIHelpers
- */
-
-////////////////////////////////////////////////////////////
-// UI helpers
-//
-// Use a semi-private variable rather than declaring UI
-// helpers directly so that we can unit test the helpers.
-// XXX For some reason, the UI helpers are not registered 
-// before the tests run.
-//
 P9s._uiHelpers = {
 
-    /**
-     * UI helper to check if current user is in at least one
-     * of the target p9s.  For use in client-side templates.
-     *
-     * @example
-     *     {{#if hasP8n 'admin'}}
-     *     {{/if}}
-     *
-     *     {{#if hasP8n 'editor,user'}}
-     *     {{/if}}
-     *
-     *     {{#if hasP8n 'editor,user' 'circle1'}}
-     *     {{/if}}
-     *
-     * @method hasP8n
-     * @param {String} p8n Name of p8n or comma-seperated list of p9s
-     * @param {String} [circle] Optional, name of circle to check
-     * @return {Boolean} true if current user is in at least one of the target p9s
-     * @static
-     * @for UIHelpers
-     */
     hasP8n: function(p8n, circle) {
         var user = Meteor.user(),
             comma = (p8n || '').indexOf(','),

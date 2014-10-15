@@ -1,13 +1,13 @@
 Package.describe({
     summary: "a6s - accounts , p9s - permissions",
-    version: '1.0.0',
+    version: '1.0.6',
     git: 'https://github.com/arunhedcet/a6sp9s'
 });
 
 Package.onUse(function(api) {
-    api.versionsFrom("METEOR@0.9.0");
+    api.versionsFrom("METEOR@0.9.4");
 
-    api.use(['iron:router', 'mrt:accounts-t9n'], ['client', 'server']);
+    api.use(['iron:router@0.9.4', 'mrt:accounts-t9n@0.0.2'], ['client', 'server']);
 
     api.use([
         'deps',
@@ -18,10 +18,10 @@ Package.onUse(function(api) {
         'handlebars',
         'session',
         'coffeescript',
-        'simple-form',
         'less',
         'sha'
     ], 'client');
+    api.addFiles(['shared/permissions.js'], ['client', 'server']);
 
 
     api.addFiles([
@@ -78,9 +78,7 @@ Package.onUse(function(api) {
     api.imply('accounts-password', ['client', 'server']);
     api.export('A6s', ['client', 'server']);
     api.export('P9s', ['client', 'server']);
-    api.use('iron-router', ['client', 'server']);
-    api.use(['accounts-t9n'], ['client', 'server']);
     api.addFiles(['shared/router_accounts.js'], ['client', 'server']);
-    api.addFiles(['shared/permissions.js'], ['client', 'server']);
+
 
 });
