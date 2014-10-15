@@ -1,0 +1,19 @@
+<template name="a6sViewExtraSignUpFields">
+    {{#each extraSignUpFields}}
+    {{> _a6sViewExtraSignUpField}}
+    {{/each}}
+</template>
+
+<template name="_a6sViewExtraSignUpField">
+    {{#if isTextField }}
+    <div class="form-group">
+        {{text_field field type=type required=required label=label placeholder=placeholder }}
+    </div>
+    {{/if}}
+
+    {{#if isCheckbox}}
+    <div class="checkbox">
+        {{check_box name label=label required=required}}
+    </div>
+    {{/if}}
+</template>
