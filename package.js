@@ -1,6 +1,6 @@
 Package.describe({
-    summary: "a6s - accounts , p9s - permissions",
-    version: '1.0.6',
+    summary: "Meteor accounts and permissions.",
+    version: '1.0.7',
     git: 'https://github.com/arunhedcet/a6sp9s'
 });
 
@@ -47,20 +47,10 @@ Package.onUse(function(api) {
         'client/views/buttons/_wrap_links.html',
         'client/views/buttons/signed_in.html',
         'client/views/buttons/buttons.js',
-        'client/t9n/english.js',
-        'client/t9n/french.js',
-        'client/t9n/german.js',
-        'client/t9n/italian.js',
-        'client/t9n/polish.js',
-        'client/t9n/spanish.js',
-        'client/t9n/swedish.js',
-        'client/t9n/portuguese.js',
-        'client/t9n/slovene.js',
-        'client/t9n/russian.js',
-        'client/t9n/arabic.js'
+        'client/t9n/english.js'
     ], 'client');
 
-    // SERVER
+    // Server
     api.use([
         'deps',
         'service-configuration',
@@ -73,7 +63,7 @@ Package.onUse(function(api) {
     api.addFiles(['server/accounts.js'], 'server');
     api.addFiles(['server/permissions.js'], 'server');
 
-    // CLIENT and SERVER
+    // shared
     api.imply('accounts-base', ['client', 'server']);
     api.imply('accounts-password', ['client', 'server']);
     api.export('A6s', ['client', 'server']);
