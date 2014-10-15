@@ -3,7 +3,7 @@
   "description": "user accounts and permissions for meteor.js",
   "homepage": "https://github.com/arunhedcet/a6sp9s",
   "author": "arunhedcet",
-  "version": "1.0.0",
+  "version": "1.0.7",
   "git": "https://github.com/arunhedcet/a6sp9s",
   "packages": {
     "iron-router": "0.9.4",
