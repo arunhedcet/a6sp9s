@@ -1,6 +1,6 @@
 Package.describe({
     summary: "Meteor accounts and permissions.",
-    version: '1.0.7',
+    version: '1.0.8',
     git: 'https://github.com/arunhedcet/a6sp9s'
 });
 
@@ -22,7 +22,8 @@ Package.onUse(function(api) {
         'sha'
     ], 'client');
     api.addFiles(['shared/permissions.js'], ['client', 'server']);
-
+    api.addFiles(['server/permissions.js'], 'server');
+    api.export('P9s', ['client', 'server']);
 
     api.addFiles([
         'client/accounts.js',
@@ -61,13 +62,12 @@ Package.onUse(function(api) {
     ], 'server');
 
     api.addFiles(['server/accounts.js'], 'server');
-    api.addFiles(['server/permissions.js'], 'server');
+
 
     // shared
     api.imply('accounts-base', ['client', 'server']);
     api.imply('accounts-password', ['client', 'server']);
     api.export('A6s', ['client', 'server']);
-    api.export('P9s', ['client', 'server']);
     api.addFiles(['shared/router_accounts.js'], ['client', 'server']);
 
 

@@ -1,14 +1,16 @@
 if (!Meteor.p9s) {
     Meteor.p9s = new Meteor.Collection("p9s")
 }
-
+if (!Meteor.circles) {
+    Meteor.circles = new Meteor.Collection("circles")
+}
 if ('undefined' === typeof P9s) {
     P9s = {}
 }
 
 "use strict";
 
-var mixingCircleAndNonCircleErrorMsg = "P9s error: Can't mix circleed and non-circleed p9s for same user";
+var mixingCircleAndNonCircleErrorMsg = "P9s error: Can't mix circled and non-circled p9s for same user";
 
 _.extend(P9s, {
 

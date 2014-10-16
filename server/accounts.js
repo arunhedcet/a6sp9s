@@ -24,13 +24,15 @@ Meteor.startup(function() {
                     username: user.username,
                     email: user.email,
                     password: user.password,
-                    profile: _.extend(profile, user.profile)
+                    profile: _.extend(profile, user.profile),
+                    p9s: ['tempUser']
                 });
             } else {
                 userId = Accounts.createUser({
                     email: user.email,
                     password: user.password,
-                    profile: _.extend(profile, user.profile)
+                    profile: _.extend(profile, user.profile),
+                    p9s: ['tempUser']
                 });
             }
             if (user.email && Accounts._options.sendVerificationEmail) {
