@@ -5,12 +5,20 @@ if (!Meteor.p9s) {
         unique: 1
     })
 }
+if (!Meteor.circles) {
+    Meteor.circles = new Meteor.Collection("circles")
+
+    Meteor.circles._ensureIndex('name', {
+        unique: 1
+    })
+}
 
 
 Meteor.publish(null, function() {
     var userId = this.userId,
         fields = {
-            p9s: 1
+            p9s: 1,
+            circles: 1
         }
 
     return Meteor.users.find({

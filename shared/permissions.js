@@ -40,6 +40,28 @@ _.extend(P9s, {
             throw e
         }
     },
+    createCircles: function(circle) {
+        var id,
+            match
+
+        if (!circle || 'string' !== typeof circle || circle.trim().length === 0) {
+            return
+        }
+
+        try {
+            id = Meteor.circles.insert({
+                'name': circle.trim()
+            })
+            return id
+        } catch (e) {
+            if (e.name !== 'MongoError') throw e
+            match = e.err.match(/^E11000 duplicate key error index: ([^ ]+)/)
+            if (!match) throw e
+            if (match[1].indexOf('$name') !== -1)
+                throw new Meteor.Error(403, "Circle already exists.")
+            throw e
+        }
+    },
 
 
     deleteP8n: function(p8n) {
