@@ -6,7 +6,7 @@ Router.map(function() {
         onBeforeAction: function() {
             Session.set('A6sViewError', void 0);
             Session.set('buttonText', 'in');
-            return this.next();
+            this.next();
         },
         onRun: function() {
             var pkgRendered, userRendered;
@@ -28,7 +28,7 @@ Router.map(function() {
                 Template[this.template].events(A6s.A6sViewSignInEvents);
                 Template[this.template].helpers(A6s.A6sViewSignInHelpers);
             }
-            return this.next();
+            this.next();
         }
     });
     this.route("A6sViewSignUp", {
@@ -36,7 +36,7 @@ Router.map(function() {
         onBeforeAction: function() {
             Session.set('A6sViewError', void 0);
             Session.set('buttonText', 'up');
-            return this.next();
+            this.next();
         },
         onRun: function() {
             var pkgRendered, userRendered;
@@ -55,14 +55,14 @@ Router.map(function() {
                 Template[this.template].events(A6s.A6sViewSignUpEvents);
                 Template[this.template].helpers(A6s.A6sViewSignUpHelpers);
             }
-            return this.next();
+            this.next();
         }
     });
     this.route("A6sViewForgotPassword", {
         path: "/forgot-password",
         onBeforeAction: function() {
             Session.set('A6sViewError', void 0);
-            return this.next();
+            this.next();
         }
     });
     this.route('A6sViewSignOut', {
@@ -75,7 +75,7 @@ Router.map(function() {
                 });
             }
             // return pause();
-            return this.next();
+            this.next();
         }
     });
     return this.route('a6sViewResetPassword', {
@@ -83,7 +83,7 @@ Router.map(function() {
         onBeforeAction: function() {
             Session.set('A6sViewError', void 0);
             Session.set('resetToken', this.params.resetToken);
-            return this.next();
+            this.next();
         }
     });
 });
