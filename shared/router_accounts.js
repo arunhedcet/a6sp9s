@@ -1,21 +1,20 @@
 var exclusions;
 
 Router.map(function() {
-    this.route("entrySignIn", {
+    this.route("A6sViewSignIn", {
         path: "/sign-in",
         onBeforeAction: function() {
-            Session.set('entryError', void 0);
-            Session.set('buttonText', 'in');
-            return this.next();
+            Session.set('A6sViewError', void 0);
+            return Session.set('buttonText', 'in');
         },
         onRun: function() {
             var pkgRendered, userRendered;
             if (Meteor.userId()) {
-                Router.go(AccountsEntry.settings.dashboardRoute);
+                Router.go(A6s.settings.dashboardRoute);
             }
-            if (AccountsEntry.settings.signInTemplate) {
-                this.template = AccountsEntry.settings.signInTemplate;
-                pkgRendered = Template.entrySignIn.rendered;
+            if (A6s.settings.signInTemplate) {
+                this.template = A6s.settings.signInTemplate;
+                pkgRendered = Template.A6sViewSignIn.rendered;
                 userRendered = Template[this.template].rendered;
                 if (userRendered) {
                     Template[this.template].rendered = function() {
@@ -25,24 +24,22 @@ Router.map(function() {
                 } else {
                     Template[this.template].rendered = pkgRendered;
                 }
-                Template[this.template].events(AccountsEntry.entrySignInEvents);
-                Template[this.template].helpers(AccountsEntry.entrySignInHelpers);
+                Template[this.template].events(A6s.A6sViewSignInEvents);
+                return Template[this.template].helpers(A6s.A6sViewSignInHelpers);
             }
-            return this.next();
         }
     });
-    this.route("entrySignUp", {
+    this.route("A6sViewSignUp", {
         path: "/sign-up",
         onBeforeAction: function() {
-            Session.set('entryError', void 0);
-            Session.set('buttonText', 'up');
-            return this.next();
+            Session.set('A6sViewError', void 0);
+            return Session.set('buttonText', 'up');
         },
         onRun: function() {
             var pkgRendered, userRendered;
-            if (AccountsEntry.settings.signUpTemplate) {
-                this.template = AccountsEntry.settings.signUpTemplate;
-                pkgRendered = Template.entrySignUp.rendered;
+            if (A6s.settings.signUpTemplate) {
+                this.template = A6s.settings.signUpTemplate;
+                pkgRendered = Template.A6sViewSignUp.rendered;
                 userRendered = Template[this.template].rendered;
                 if (userRendered) {
                     Template[this.template].rendered = function() {
@@ -52,39 +49,38 @@ Router.map(function() {
                 } else {
                     Template[this.template].rendered = pkgRendered;
                 }
-                Template[this.template].events(AccountsEntry.entrySignUpEvents);
-                Template[this.template].helpers(AccountsEntry.entrySignUpHelpers);
+                Template[this.template].events(A6s.A6sViewSignUpEvents);
+                return Template[this.template].helpers(A6s.A6sViewSignUpHelpers);
             }
-            return this.next();
         }
     });
-    this.route("entryForgotPassword", {
+    this.route("A6sViewForgotPassword", {
         path: "/forgot-password",
         onBeforeAction: function() {
-            Session.set('entryError', void 0);
-            return this.next();
+            return Session.set('A6sViewError', void 0);
         }
     });
-    this.route('entrySignOut', {
+    this.route('A6sViewSignOut', {
         path: '/sign-out',
-        onBeforeAction: function() {
-            Session.set('entryError', void 0);
-            if (AccountsEntry.settings.homeRoute) {
-                return Meteor.logout(function() {
-                    return Router.go(AccountsEntry.settings.homeRoute);
+        onBeforeAction: function(pause) {
+            Session.set('A6sViewError', void 0);
+            if (A6s.settings.homeRoute) {
+                Meteor.logout(function() {
+                    return Router.go(A6s.settings.homeRoute);
                 });
             }
+            return pause();
         }
     });
-    return this.route('entryResetPassword', {
+    this.route('a6sViewResetPassword', {
         path: 'reset-password/:resetToken',
         onBeforeAction: function() {
-            Session.set('entryError', void 0);
-            Session.set('resetToken', this.params.resetToken);
-            return this.next();
+            Session.set('A6sViewError', void 0);
+            return Session.set('resetToken', this.params.resetToken);
         }
     });
 });
+
 
 exclusions = [];
 
@@ -96,4 +92,5 @@ Router.onStop(function() {
     if (!_.contains(exclusions, Router.current().route.name)) {
         return Session.set('fromWhere', Router.current().path);
     }
+
 });
