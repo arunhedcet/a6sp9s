@@ -67,15 +67,15 @@ Router.map(function() {
     });
     this.route('A6sViewSignOut', {
         path: '/sign-out',
-        onBeforeAction: function(pause) {
+        onBeforeAction: function() {
             Session.set('A6sViewError', void 0);
             if (A6s.settings.homeRoute) {
-                Meteor.logout(function() {
+                return Meteor.logout(function() {
                     return Router.go(A6s.settings.homeRoute);
                 });
             }
             // return pause();
-            return this.next();
+            // return this.next();
         }
     });
     return this.route('a6sViewResetPassword', {

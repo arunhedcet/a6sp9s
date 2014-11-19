@@ -32,22 +32,28 @@
                  return signUpRoute.options.template = appConfig.signUpTemplate;
              }
          },
-         signInRequired: function(router, pause, extraCondition) {
+         signInRequired: function(router, extraCondition) {
+
+
+
+
              if (extraCondition == null) {
                  extraCondition = true;
              }
              if (!Meteor.loggingIn()) {
                  if (!(Meteor.user() && extraCondition)) {
-                     Session.set('fromWhere', router.path);
+                     return router.next();
+                 } else {
+                     Session.set('fromWhere', router.url);
                      Router.go('/sign-in');
-                     Session.set('A6sViewError', t9n('error.signInRequired'));
-                     return pause.call();
+                     return Session.set('A6sViewError', t9n('error.signInRequired'));
+
                  }
              }
          }
      };
 
-
+     this.A6s = A6s;
      T9NHelper = (function() {
          function T9NHelper() {}
 
