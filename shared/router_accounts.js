@@ -5,7 +5,7 @@ Router.map(function() {
         path: "/sign-in",
         onBeforeAction: function() {
             Session.set('A6sViewError', void 0);
-            return Session.set('buttonText', 'in');
+            Session.set('buttonText', 'in');
             return this.next();
         },
         onRun: function() {
@@ -20,7 +20,7 @@ Router.map(function() {
                 if (userRendered) {
                     Template[this.template].rendered = function() {
                         pkgRendered.call(this);
-                        return userRendered.call(this);
+                        userRendered.call(this);
                     };
                 } else {
                     Template[this.template].rendered = pkgRendered;
@@ -35,7 +35,7 @@ Router.map(function() {
         path: "/sign-up",
         onBeforeAction: function() {
             Session.set('A6sViewError', void 0);
-            return Session.set('buttonText', 'up');
+            Session.set('buttonText', 'up');
             return this.next();
         },
         onRun: function() {
@@ -47,7 +47,7 @@ Router.map(function() {
                 if (userRendered) {
                     Template[this.template].rendered = function() {
                         pkgRendered.call(this);
-                        return userRendered.call(this);
+                        userRendered.call(this);
                     };
                 } else {
                     Template[this.template].rendered = pkgRendered;
@@ -61,7 +61,7 @@ Router.map(function() {
     this.route("A6sViewForgotPassword", {
         path: "/forgot-password",
         onBeforeAction: function() {
-            return Session.set('A6sViewError', void 0);
+            Session.set('A6sViewError', void 0);
             return this.next();
         }
     });
@@ -70,19 +70,19 @@ Router.map(function() {
         onBeforeAction: function() {
             Session.set('A6sViewError', void 0);
             if (A6s.settings.homeRoute) {
-                return Meteor.logout(function() {
-                    return Router.go(A6s.settings.homeRoute);
+                Meteor.logout(function() {
+                    Router.go(A6s.settings.homeRoute);
                 });
             }
             // return pause();
-            // return this.next();
+            return this.next();
         }
     });
     return this.route('a6sViewResetPassword', {
         path: 'reset-password/:resetToken',
         onBeforeAction: function() {
             Session.set('A6sViewError', void 0);
-            return Session.set('resetToken', this.params.resetToken);
+            Session.set('resetToken', this.params.resetToken);
             return this.next();
         }
     });
@@ -92,12 +92,12 @@ Router.map(function() {
 exclusions = [];
 
 _.each(Router.routes, function(route) {
-    return exclusions.push(route.name);
+    return exclusions.push(route.getName());
 });
 
 Router.onStop(function() {
-    if (!_.contains(exclusions, Router.current().route.name)) {
-        return Session.set('fromWhere', Router.current().path);
+    if (!_.contains(exclusions, Router.current().route.getName())) {
+        return Session.set('fromWhere', Router.current().url);
     }
 
 });
