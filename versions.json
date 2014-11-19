@@ -85,20 +85,40 @@
       "1.0.1"
     ],
     [
+      "iron:controller",
+      "1.0.0"
+    ],
+    [
       "iron:core",
-      "0.3.4"
+      "1.0.0"
     ],
     [
       "iron:dynamic-template",
-      "0.4.1"
+      "1.0.0"
     ],
     [
       "iron:layout",
-      "0.4.1"
+      "1.0.0"
+    ],
+    [
+      "iron:location",
+      "1.0.1"
+    ],
+    [
+      "iron:middleware-stack",
+      "1.0.0"
     ],
     [
       "iron:router",
-      "0.9.4"
+      "1.0.1"
+    ],
+    [
+      "iron:url",
+      "1.0.0"
+    ],
+    [
+      "joshowens:simple-form",
+      "0.2.2"
     ],
     [
       "jquery",
@@ -137,8 +157,8 @@
       "1.0.7"
     ],
     [
-      "mrt:accounts-t9n",
-      "0.0.13"
+      "mrt:underscore-string-latest",
+      "2.3.3"
     ],
     [
       "npm-bcrypt",
@@ -173,6 +193,10 @@
       "1.0.2"
     ],
     [
+      "schnie:uploader",
+      "2.0.3"
+    ],
+    [
       "service-configuration",
       "1.0.2"
     ],
@@ -183,6 +207,10 @@
     [
       "sha",
       "1.0.1"
+    ],
+    [
+      "softwarerero:accounts-t9n",
+      "1.0.3"
     ],
     [
       "spacebars",

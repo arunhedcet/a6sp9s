@@ -75,6 +75,7 @@ Router.map(function() {
                 });
             }
             // return pause();
+            return this.next();
         }
     });
     return this.route('a6sViewResetPassword', {
@@ -82,6 +83,7 @@ Router.map(function() {
         onBeforeAction: function() {
             Session.set('A6sViewError', void 0);
             return Session.set('resetToken', this.params.resetToken);
+            return this.next();
         }
     });
 });
