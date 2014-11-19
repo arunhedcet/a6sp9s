@@ -74,15 +74,14 @@ Router.map(function() {
                     return Router.go(A6s.settings.homeRoute);
                 });
             }
-            return pause();
+            // return pause();
         }
     });
-    this.route('a6sViewResetPassword', {
+    return this.route('a6sViewResetPassword', {
         path: 'reset-password/:resetToken',
         onBeforeAction: function() {
             Session.set('A6sViewError', void 0);
             return Session.set('resetToken', this.params.resetToken);
-            return this.next();
         }
     });
 });

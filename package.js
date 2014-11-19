@@ -1,13 +1,13 @@
 Package.describe({
     summary: "Meteor accounts and permissions.",
-    version: '1.0.13',
+    version: '1.0.16',
     git: 'https://github.com/arunhedcet/a6sp9s'
 });
 
 Package.onUse(function(api) {
-    api.versionsFrom("METEOR@0.9.4");
+    api.versionsFrom("METEOR@0.9.0");
 
-    api.use(['iron:router@0.9.4', 'mrt:accounts-t9n@0.0.2'], ['client', 'server']);
+    api.use(['iron:router@1.0.0', 'softwarerero:accounts-t9n@1.0.0', 'joshowens:simple-form@0.1.8'], ['client', 'server']);
 
     api.use([
         'deps',
