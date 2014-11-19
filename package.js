@@ -1,6 +1,6 @@
 Package.describe({
     summary: "Meteor accounts and permissions.",
-    version: '1.0.12',
+    version: '1.0.13',
     git: 'https://github.com/arunhedcet/a6sp9s'
 });
 
