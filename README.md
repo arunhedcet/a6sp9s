@@ -73,3 +73,16 @@ circle is optional. If (!circle) {circle = global circle}
 usage : ` P9s.getCirclesForUser(user,p8n) `
 user should be string
 p8n should be string
+
+
+A6s (Accounts) Methods
+-------------
+
+A6s Routes
+-------------
+
+A6s Helpers
+-------------
+
+Methods to be added
+-------------------
