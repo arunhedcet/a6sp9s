@@ -1,10 +1,10 @@
-A6sp9s (**A**ccount**s** and **P**ermission**s**)
-===================
+A6sp9s ( Accounts  and  Permissions )
+==================================================
 
-P9S (**P**ermission**s**) Methods
+P9S (Permissions) Methods
 -------------------------
 
-*   ** ``` createP8n() ``` ** – To create platform permission
+*   ``` createP8n() ``` – To create platform permission
 eg : admin,manager etc
 usage : ``` P9s.createP8n(p8n) ```
 p8n is string
