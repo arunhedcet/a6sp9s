@@ -1,7 +1,7 @@
-A6sp9s ( Accounts  and  Permissions )
+A6sp9s ( `A`ccount`s`  and  `P`ermission`s` )
 ==================================================
 
-P9S (Permissions) Methods
+P9S (`P`ermission`s`) Methods
 -------------------------
 
 *    **`createP8n()`**  – To create platform permission
